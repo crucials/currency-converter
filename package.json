@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compileTW": "npx tailwindcss -i src/css/index.css -o build/css/index.css --watch",
+    "compileTW": "npx tailwindcss -i css/index.css -o css/build/index.css --watch",
     "compileTS": "tsc -p tsconfig.json --watch"
   },
   "author": "",
