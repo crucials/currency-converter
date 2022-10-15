@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.themeable {
+    @apply transition-colors;
+    transition-duration: 0.4s; 
+}
+
+.api-link {
+    @apply text-main-lighter;
+    transition: text-shadow 0.3s;
+    text-shadow: 0px 1px 5px rgba(255,255,255,0.15);
+}
+
+.api-link:hover {
+    text-shadow: 0px 1px 20px rgba(255,255,255,0.31);
+}
+
+.github-link {
+    @apply absolute right-2 top-3 flex items-center gap-x-2;
+}
+
+.github-link:hover span:first-child {
+    @apply opacity-100 translate-x-0 xs:translate-x-3;
+}
+
+.content {
+    @apply w-5/6 mx-auto bg-white shadow-2xl dark:bg-zinc-800 dark:bg-opacity-75 dark:shadow-none
+    pt-12 pb-24 rounded-3xl flex justify-center items-center gap-x-12 px-7 gap-y-10 xl:w-full m:flex-col
+    min-w-3.5;
+}
+
+@media (max-width: 1050px) {
+    .content {
+        @apply w-5/6;
+    }
+}
+
+@media (max-width: 400px) {
+    .content {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.currency {
+    @apply w-1/5 h-full flex justify-center items-center overflow-hidden dark:text-white text-3xl font-work-sans 
+        font-normal hover:cursor-pointer hover:bg-gray-300 hover:dark:bg-zinc-900 relative;
+}
+
+.currency:first-child {
+    @apply rounded-l-2xl;
+}
+
+.currency:last-child {
+    @apply rounded-r-2xl;
+}
+
+.currency[data-selected] div {
+    @apply translate-x-0;
+}

@@ -1,0 +1,16 @@
+{
+  "name": "currency-coverter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compileTW": "npx tailwindcss -i src/css/index.css -o build/css/index.css --watch",
+    "compileTS": "tsc -p tsconfig.json --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.4.12",
+    "tailwindcss": "^3.1.8"
+  }
+}

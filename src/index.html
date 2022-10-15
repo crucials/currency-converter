@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+        <link rel="stylesheet" href="../build/css/index.css">
+        <script src="../build/js/index.js"></script>
+
+        <title>Currency converter</title>
+    </head>
+
+    <body class="selection:bg-main">
+        <main class="themeable pt-10 pb-24 bg-radial-gradient-light dark:bg-radial-gradient-dark xl:pt-28 
+            min-h-screen xl:px-4">
+
+            <button class="themeable absolute top-10 left-8 px-3 w-24 h-10 bg-gray-200 dark:bg-zinc-800 rounded-2xl 
+                flex items-center justify-end dark:justify-start" onclick="switchTheme()">
+                <div class="themeable w-8 h-8 rounded-full flex items-center justify-center bg-white dark:bg-black">
+                    <img src="images/sun.png" alt="Sun icon" class="w-6 h-6" id="themeIcon">
+                </div>
+            </button>
+
+            <a href="https://github.com/crucials/currency-converter" target="_blank" class="github-link">
+                <span class="transition-all duration-300 dark:text-white text-2xl font-roboto-slab font-light 
+                    opacity-0 translate-x-24 xs:text-xl">Github</span>
+
+                <img src="images/github.svg" alt="Github logo" class="w-24 h-24">
+            </a>
+
+            <h1 class="themeable text-7xl dark:text-white font-work-sans font-light text-center mb-3
+                sm:text-5xl">
+                Currency converter
+            </h1>
+
+            <p class="themeable text-center font-work-sans font-normal text-3xl text-gray-800 
+                dark:text-gray-300 mb-24 sm:text-xl">
+                Exchange rate was taken from 
+                <a href="https://www.cbr-xml-daily.ru/" target="_blank" class="api-link">
+                    cbr-xml-daily.ru
+                </a>
+            </p>
+
+            <div class="content">
+                <form class="w-[36%] min-w-3">
+                    <label for="fromField" class="themeable block font-roboto-slab font-normal text-3xl dark:text-white mb-8
+                        m:text-center">
+                        From:
+                    </label>
+
+                    <input type="number" id="fromField" class="themeable focus:outline-none 
+                        border border-white dark:border-zinc-800 dark:bg-opacity-75 
+                        focus:border-main-lighter focus:dark:border-main-lighter rounded-2xl py-12 
+                        w-full font-work-sans font-normal dark:text-white text-7xl px-4 bg-gray-200 dark:bg-zinc-800
+                        mb-12" oninput="convert(event)">
+
+                    <ul type="none" class="w-full h-14 bg-gray-200 rounded-2xl dark:bg-zinc-800 flex" id="fromCurrenciesList">
+                        <li class="themeable currency" onclick="selectCurrency(event)" data-selected>
+                            <div class="transition-transform absolute w-full h-full top-0 left-0 
+                                bg-main -translate-x-full"></div>
+                            <span class="relative">RUB</span>
+                        </li>
+
+                        <li class="themeable currency" onclick="selectCurrency(event)">
+                            <div class="transition-transform absolute w-full h-full top-0 left-0 
+                                bg-main -translate-x-full"></div>
+                            <span class="relative">USD</span>
+                        </li>
+
+                        <li class="themeable currency" onclick="selectCurrency(event)">
+                            <div class="transition-transform absolute w-full h-full top-0 left-0 
+                                bg-main -translate-x-full"></div>
+                            <span class="relative">EUR</span>
+                        </li>
+
+                        <li class="themeable currency" onclick="selectCurrency(event)">
+                            <div class="transition-transform absolute w-full h-full top-0 left-0 
+                                bg-main -translate-x-full"></div>
+                            <span class="relative">GBP</span>
+                        </li>
+
+                        <li class="themeable currency" onclick="selectCurrency(event)">
+                            <div class="transition-transform absolute w-full h-full top-0 left-0 
+                                bg-main -translate-x-full"></div>
+                            <span class="relative">JPY</span>
+                        </li>
+                    </ul>
+                </form>
+
+                <button class="transition-transform duration-200 w-24 h-24 active:scale-110 my-5" onclick="reverse()">
+                    <img src="images/reverse.png" alt="Reverse arrows icon" class="w-full h-full">
+                </button>
+
+                <form class="w-[36%] min-w-3">
+                    <label for="toField" class="themeable block font-roboto-slab font-normal text-3xl dark:text-white mb-8
+                        m:text-center">
+                        To:
+                    </label>
+
+                    <input type="number" id="toField" class="themeable focus:outline-none 
+                        border border-white dark:border-zinc-800 dark:bg-opacity-75 
+                        focus:border-main-lighter focus:dark:border-main-lighter rounded-2xl py-12 
+                        w-full font-work-sans font-normal dark:text-white text-7xl px-4 bg-gray-200 dark:bg-zinc-800
+                        mb-12" oninput="convert(event)">
+
+                    <ul type="none" class="w-full h-14 bg-gray-200 rounded-2xl dark:bg-zinc-800 flex" id="toCurrenciesList">
+                        <li class="themeable currency" onclick="selectCurrency(event)">
+                            <div class="transition-transform absolute w-full h-full top-0 left-0 
+                                 bg-main -translate-x-full"></div>
+                            <span class="relative">RUB</span>
+                        </li>
+    
+                        <li class="themeable currency" onclick="selectCurrency(event)" data-selected>
+                            <div class="transition-transform absolute w-full h-full top-0 left-0 
+                                 bg-main -translate-x-full"></div>
+                            <span class="relative">USD</span>
+                        </li>
+    
+                        <li class="themeable currency" onclick="selectCurrency(event)">
+                            <div class="transition-transform absolute w-full h-full top-0 left-0 
+                                 bg-main -translate-x-full"></div>
+                            <span class="relative">EUR</span>
+                        </li>
+    
+                        <li class="themeable currency" onclick="selectCurrency(event)">
+                            <div class="transition-transform absolute w-full h-full top-0 left-0 
+                                 bg-main -translate-x-full"></div>
+                            <span class="relative">GBP</span>
+                        </li>
+    
+                        <li class="themeable currency" onclick="selectCurrency(event)">
+                            <div class="transition-transform absolute w-full h-full top-0 left-0 
+                                 bg-main -translate-x-full"></div>
+                            <span class="relative">JPY</span>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </main>
+    </body>
+</html>
